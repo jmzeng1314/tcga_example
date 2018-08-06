@@ -11,7 +11,7 @@
 ###
 ### ---------------
 
-### https://github.com/jmzeng1314/GEO/blob/master/GSE11121/step5-surivival.R
+### https://github.com/jmzeng1314/ML
 
 rm(list=ls())
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
@@ -28,13 +28,18 @@ library(Hmisc)
 
 x=t(log2(exprSet+1))
 y=phe$event
+table(y)
 
 tmp = as.vector(table(y))
 num_classes = length(tmp)
 min_size = tmp[order(tmp,decreasing=FALSE)[1]]
 sampsizes = rep(min_size,num_classes)
 
-rf_output=randomForest(x=x, y=y )
+rf_output=randomForest(x=x, y=y,importance = TRUE, ntree = 10001, proximity=TRUE )
+rf_output
+str(rf_output)
+
+
 rf_importances=importance(rf_output, scale=FALSE)
 head(rf_importances)
 varImpPlot(rf_output, type=2, n.var=30, scale=FALSE, 
@@ -43,18 +48,8 @@ target_labels=as.vector(y)
 MDSplot(rf_output, y, k=2, xlab="", ylab="", 
         pch=target_labels, palette=c("red", "blue"), main="MDS plot")
 
-print(rf_output)
-predictions=as.vector(rf_output$votes[,2])
-pred=prediction(predictions,target)
-#First calculate the AUC value
-perf_AUC=performance(pred,"auc")
-AUC=perf_AUC@y.values[[1]]
-#Then, plot the actual ROC curve 
-perf_ROC=performance(pred,"tpr","fpr")
-plot(perf_ROC, main="ROC plot")
-text(0.5,0.5,paste("AUC = ",format(AUC, digits=5, scientific=FALSE)))
-
-
+print(rf_output) 
+choose_gene=rownames(tail(rf_importances[order(rf_importances[,2]),],50))
 
 library(pheatmap) 
 choose_matrix=expr[choose_gene,]
@@ -64,23 +59,17 @@ choose_matrix=t(scale(t(log2(choose_matrix+1))))
 annotation_col = data.frame( group_list=group_list  )
 rownames(annotation_col)=colnames(expr)
 pheatmap(choose_matrix,show_colnames = F,annotation_col = annotation_col,
-         filename = 'lasso_genes.heatmap.png')
+         filename = 'rf_genes.heatmap.png')
 
 
 library(ggfortify)
 df=as.data.frame(t(choose_matrix))
 df$group=group_list
-png('lasso_genes.pca.png',res=120)
+png('rf_genes.pca.png',res=120)
 autoplot(prcomp( df[,1:(ncol(df)-1)] ), data=df,colour = 'group')+theme_bw()
 dev.off()
 
-
-
-
-pre <- predict(model_lasso, newx=x , s=c(model_lasso$lambda[29],0.23))
-head(cbind(y,pre))
-
-
+ 
 
 
 

@@ -14,6 +14,7 @@
 ### https://github.com/jmzeng1314/GEO/blob/master/airway/DEG_rnsseq.R
 #rm(list=ls())
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
+dim(expr)
 group_list=ifelse(substr(colnames(expr),14,15)=='01','tumor','normal')
 table(group_list)
 exprSet=na.omit(expr)
@@ -32,7 +33,7 @@ if(T){
   dds <- DESeqDataSetFromMatrix(countData = exprSet,
                                 colData = colData,
                                 design = ~ group_list)
-  if(F){
+  if(!file.exists('DESeq2-dds.Rdata')){
     dds <- DESeq(dds)
     save(dds,file = 'DESeq2-dds.Rdata')
   }
@@ -108,11 +109,11 @@ if(T){
   fit <- lmFit(v, design)
   
   group_list
-  cont.matrix=makeContrasts(contrasts=c('normal-tumor'),levels = design)
+  cont.matrix=makeContrasts(contrasts=c('tumor-normal'),levels = design)
   fit2=contrasts.fit(fit,cont.matrix)
   fit2=eBayes(fit2)
   
-  tempOutput = topTable(fit2, coef='normal-tumor', n=Inf)
+  tempOutput = topTable(fit2, coef='tumor-normal', n=Inf)
   DEG_limma_voom = na.omit(tempOutput)
   head(DEG_limma_voom)
   nrDEG=DEG_limma_voom[,c(1,4)]
@@ -139,7 +140,10 @@ colnames(nrDEG2)=c('log2FoldChange','pvalue')
 nrDEG3=DESeq2_DEG[,c(2,6)]
 colnames(nrDEG3)=c('log2FoldChange','pvalue')  
 
-
+mi=unique(c(rownames(nrDEG1),rownames(nrDEG1),rownames(nrDEG1)))
+lf=data.frame(lf1=nrDEG1[mi,1],
+              lf2=nrDEG2[mi,1],
+              lf3=nrDEG3[mi,1])
 
 
 

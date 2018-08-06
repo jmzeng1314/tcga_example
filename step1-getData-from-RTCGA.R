@@ -11,9 +11,23 @@
 ###
 ### ---------------
 
-if(F){
+if(F){ 
+  options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+  
+  source("http://bioconductor.org/biocLite.R") 
+  options(BioC_mirror="https://mirrors.ustc.edu.cn/bioc/")  
+  if(! require('RTCGA')){
+  BiocInstaller::biocLite('RTCGA',
+                          ask = F,suppressUpdates = T)
+  }
+  if(! require('RTCGA.miRNASeq')){
   BiocInstaller::biocLite('RTCGA.miRNASeq',
                           ask = F,suppressUpdates = T)
+  }
+    if(! require('RTCGA.clinical')){
+  BiocInstaller::biocLite('RTCGA.clinical',
+                          ask = F,suppressUpdates = T)
+    }
 }
 
 if(F){

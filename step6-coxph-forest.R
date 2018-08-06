@@ -40,7 +40,7 @@ dat$stage=factor(dat$stage)
 
 colnames(dat)
 s=Surv(time, event) ~ gender + stage + age + miR21+miR143+miR10b+miR192+miR183
-#s=Surv(time, event) ~ miR21+miR143+miR10b+miR192+miR183
+s=Surv(time, event) ~ miR21+miR143+miR10b+miR192+miR183
 model <- coxph(s, data = dat )
 summary(model,data=dat)
 options(scipen=1)

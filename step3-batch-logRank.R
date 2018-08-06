@@ -43,6 +43,7 @@ if(F){
   meta$age=as.numeric(meta$age)
   library(stringr) 
   meta$stage=str_split(meta$stage,' ',simplify = T)[,2]
+  table(  meta$stage)
   boxplot(meta$age)
   meta$age_group=ifelse(meta$age>median(meta$age),'older','younger')
   table(meta$race)
@@ -97,7 +98,7 @@ ggsurvplot(survfit(Surv(time, event)~gene, data=phe), conf.int=F, pval=TRUE)
 ## 批量生存分析 使用  logrank test 方法
 mySurv=with(phe,Surv(time, event))
 log_rank_p <- apply(exprSet , 1 , function(gene){
-  #gene=exprSet[1,]
+  # gene=exprSet[1,]
   phe$group=ifelse(gene>median(gene),'high','low')  
   data.survdiff=survdiff(mySurv~group,data=phe)
   p.val = 1 - pchisq(data.survdiff$chisq, length(data.survdiff$n) - 1)

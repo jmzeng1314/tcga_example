@@ -13,7 +13,7 @@
 
 ### https://github.com/jmzeng1314/GEO/blob/master/GSE11121/step5-surivival.R
 
-rm(list=ls())
+#rm(list=ls())
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
 group_list=ifelse(substr(colnames(expr),14,15)=='01','tumor','normal')
 table(group_list)
@@ -26,7 +26,8 @@ exprSet[1:4,1:4]
 colnames(phe)
 mySurv=with(phe,Surv(time, event))
 cox_results <-apply(exprSet , 1 , function(gene){
-  group=ifelse(gene>median(gene),'high','low')
+  # gene= exprSet[1,]
+  group=ifelse(gene>median(gene),'high','low') 
   survival_dat <- data.frame(group=group,stage=phe$stage,age=phe$age,
                              gender=phe$gender,
                              stringsAsFactors = F)
