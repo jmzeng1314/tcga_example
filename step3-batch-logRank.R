@@ -14,6 +14,8 @@
 ### https://github.com/jmzeng1314/GEO/blob/master/GSE11121/step5-surivival.R
 
 rm(list=ls())
+library(survival)
+library(survminer)
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
 group_list=ifelse(substr(colnames(expr),14,15)=='01','tumor','normal')
 table(group_list)

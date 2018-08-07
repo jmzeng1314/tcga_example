@@ -25,7 +25,7 @@ if(! require("survminer")) install.packages("survminer")
 if(! require("lars")) install.packages("lars")
 if(! require("glmnet")) install.packages("glmnet")
 
-if(! require("maftools")) install.packages("maftools")
+if(! require("timeROC")) install.packages("timeROC")
 if(! require("ggpubr")) install.packages("ggpubr")
 
 if(! require("randomForest")) install.packages("randomForest")
@@ -33,6 +33,10 @@ if(! require("ROCR")) install.packages("ROCR")
 if(! require("genefilter")) install.packages("genefilter")
 if(! require("Hmisc")) install.packages("Hmisc")
  
+if(! require("caret")) install.packages("caret")
+if(! require("genefilter")) install.packages("genefilter")
+if(! require("Hmisc")) install.packages("Hmisc")
+
 
 library(devtools) 
 source("http://bioconductor.org/biocLite.R") 
@@ -42,7 +46,7 @@ biocLite(c('airway','DESeq2','edgeR','limma'))
 
 if(! require("CLL")) biocLite("CLL")
 if(! require("org.Hs.eg.db")) biocLite(org.Hs.eg.db)
-
+if(! require("maftools")) biocLite("maftools")
 
 
 

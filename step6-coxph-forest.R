@@ -18,7 +18,8 @@
 # HR > 1: 风险增高
 
 rm(list=ls())
-library("survminer")
+library(survival)
+library(survminer)
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
 group_list=ifelse(substr(colnames(expr),14,15)=='01','tumor','normal')
 table(group_list)

@@ -36,11 +36,28 @@ cv_fit <- cv.glmnet(x=x, y=y, alpha = 1, nlambda = 1000)
 plot.cv.glmnet(cv_fit)
 # 两条虚线分别指示了两个特殊的λ值:
 c(cv_fit$lambda.min,cv_fit$lambda.1se) 
+ 
+model_lasso <- glmnet(x=x, y=y, alpha = 1, lambda=cv_fit$lambda.1se)
+lasso.prob <- predict(cv_fit, newx=x , s=c(cv_fit$lambda.min,cv_fit$lambda.1se) )
+re=cbind(y ,lasso.prob)
+
+library(ROCR)
+library(glmnet)
+library(caret)
+# calculate probabilities for TPR/FPR for predictions
+pred <- prediction(re[,2], re[,1])
+perf <- performance(pred,"tpr","fpr")
+performance(pred,"auc") # shows calculated AUC for model
+plot(perf,colorize=FALSE, col="black") # plot ROC curve
+lines(c(0,1),c(0,1),col = "gray", lty = 4 )
+
+
 fit <- glmnet(x=x, y=y, alpha = 1, lambda=cv_fit$lambda.1se)
 head(fit$beta)
 fit <- glmnet(x=x, y=y, alpha = 1, lambda=cv_fit$lambda.min)
 head(fit$beta)
 choose_gene=rownames(fit$beta)[as.numeric(fit$beta)!=0]
+
 
 library(pheatmap) 
 choose_matrix=expr[choose_gene,]
@@ -59,18 +76,3 @@ df$group=group_list
 png('lasso_genes.pca.png',res=120)
 autoplot(prcomp( df[,1:(ncol(df)-1)] ), data=df,colour = 'group')+theme_bw()
 dev.off()
-
-
-
-
-pre <- predict(model_lasso, newx=x , s=c(model_lasso$lambda[29],0.23))
-head(cbind(y,pre))
-
-
-
-
-
-
-
-
-
