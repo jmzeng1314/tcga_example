@@ -14,6 +14,11 @@
 # https://github.com/jmzeng1314/biotrainee 
 
 ## 强调，不是所有的R包都需要安装成功的。
+## 强调，不是所有的R包都需要安装成功的。
+## 强调，不是所有的R包都需要安装成功的。
+## 强调，不是所有的R包都需要安装成功的。
+## 失败就失败，大不了从头再来，卸载R语言，从新开始。
+
 ## 强调，中国大陆的粉丝务必注意下载镜像。
 ## 强调，管是什么电脑，都请务必安装好R及Rstudio哦
 # 所有的软件都安装在c盘哦，然后系统用户名最好是不要用中文，写代码最怕中文字符串哦！
@@ -46,7 +51,7 @@ if(! require("genefilter")) install.packages("genefilter")
 if(! require("Hmisc")) install.packages("Hmisc")
  
 if(! require("caret")) install.packages("caret")
-if(! require("genefilter")) install.packages("genefilter")
+# if(! require("genefilter")) install.packages("genefilter")
 if(! require("ggstatsplot")) install.packages("ggstatsplot")
 
 ### 下面的包是为了临床三线表
@@ -87,6 +92,8 @@ if(! require("RTCGA.clinical")) biocLite("RTCGA.clinical")
 # https://bioconductor.org/packages/3.6/data/experiment/src/contrib/RTCGA.clinical_20151101.8.0.tar.gzn
 if(! require("RTCGA.miRNASeq")) biocLite("RTCGA.miRNASeq")
 if(! require("maftools")) biocLite("maftools")
+if(! require("genefilter")) biocLite("genefilter")
+
 
 # Then from : https://github.com/ShixiangWang 
 # You don't need run the codes below, I will explain to you face to face.
