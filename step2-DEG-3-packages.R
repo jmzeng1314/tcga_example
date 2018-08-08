@@ -12,7 +12,8 @@
 ### ---------------
 
 ### https://github.com/jmzeng1314/GEO/blob/master/airway/DEG_rnsseq.R
-#rm(list=ls())
+
+rm(list=ls())
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
 dim(expr)
 group_list=ifelse(substr(colnames(expr),14,15)=='01','tumor','normal')
@@ -91,7 +92,7 @@ if(T){
 
 ### ---------------
 ###
-### Lastly run voom 
+### Lastly run voom from limma
 ###
 ### --------------- 
 if(T){

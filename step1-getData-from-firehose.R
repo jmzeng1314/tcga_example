@@ -23,6 +23,6 @@ dim(na.omit(ffpe))
 clinical=read.table('broad-firehose/clinical/KIRC.merged_only_clinical_clin_format.txt',
                     header = T,sep='\t',fill=T)
 
-
+clinical[1:4,1:4]
 
 
