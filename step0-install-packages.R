@@ -46,8 +46,7 @@ if(! require("timeROC")) install.packages("timeROC")
 if(! require("ggpubr")) install.packages("ggpubr")
 
 if(! require("randomForest")) install.packages("randomForest")
-if(! require("ROCR")) install.packages("ROCR")
-if(! require("genefilter")) install.packages("genefilter")
+if(! require("ROCR")) install.packages("ROCR") 
 if(! require("Hmisc")) install.packages("Hmisc")
  
 if(! require("caret")) install.packages("caret")
@@ -76,14 +75,14 @@ source("http://bioconductor.org/biocLite.R")
 ## 很可惜你在中国大陆，不得不承受这个痛苦。
 
 options(BioC_mirror="https://mirrors.ustc.edu.cn/bioc/") 
-library(BiocInstaller)
+library('BiocInstaller')
 if(! require('edgeR')){
   
   biocLite(c('airway','DESeq2','edgeR','limma'))
 }
 
 if(! require("CLL")) biocLite("CLL")
-if(! require("org.Hs.eg.db")) biocLite(org.Hs.eg.db)
+if(! require("org.Hs.eg.db")) biocLite('org.Hs.eg.db')
 library(BiocInstaller)
 options(BioC_mirror="https://mirrors.ustc.edu.cn/bioc/")
 if(! require("maftools")) biocLite("maftools")
