@@ -68,6 +68,8 @@ GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data ... de/Getting_S
 
 这些都是价值1000的代码，你看我我在生信技能树的推文就理解，为什么是这个定价了：https://mp.weixin.qq.com/s/hOgiWzvkWZLNKX1LDvrAaw  但是要想完全吃透我的代码，你肯定是需要有R语言知识的。我在B站的一系列免费R教学视频应该是可以帮助你的。
 
+- 可能需要学一点点linux基础知识，看：https://www.bilibili.com/video/av28813815/ 
+- 还需要一点点R语言基础知识，看：https://www.bilibili.com/video/av25643438/ 
 - GEO数据库挖掘视频链接： <https://www.bilibili.com/video/av26731585/>
 
 既然代码免费放送给你了，但我还是希望你尊重我代码，不懂就不要瞎修改，而且如果真的对你有帮助，也欢迎打赏！！！
