@@ -32,11 +32,11 @@ TCGA的28篇教程往期目录如下：
 
 #### GDC官方下载工具
 
-GDC给出了一系列的用户友好的选择框，你只需要根据条条框框来选择就可以下载到自己想要的数据，而不需要去几百个文件夹里面漫无目的的查找了。 <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>  根据自定义搜索过滤条件拿到了 mainfest 文件就可以啦。（可能需要一点点linux基础，或者看视频指导）
+GDC给出了一系列的用户友好的选择框，你只需要根据条条框框来选择就可以下载到自己想要的数据，而不需要去几百个文件夹里面漫无目的的查找了。 <https://portal.gdc.cancer.gov/legacy-archive/search/f>  根据自定义搜索过滤条件拿到了 mainfest 文件就可以啦。（可能需要一点点linux基础，或者看视频指导）
 
-GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data ... de/Getting_Started/](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/) 
+GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/) 
 傻瓜式软件，非常简单！
-[https://docs.gdc.cancer.gov/Data ... ownload_and_Upload/](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/)
+[https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/)
 一般人只需要根据你搜索过滤得到的mainfest进行GDC下载数据即可，下载下来的文件，是每个样本一个文件夹，需要合并，需要了解为什么用XML来存储信息
 
 ### 实例文章
@@ -68,8 +68,8 @@ GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data ... de/Getting_S
 
 这些都是价值1000的代码，你看我我在生信技能树的推文就理解，为什么是这个定价了：https://mp.weixin.qq.com/s/hOgiWzvkWZLNKX1LDvrAaw  但是要想完全吃透我的代码，你肯定是需要有R语言知识的。我在B站的一系列免费R教学视频应该是可以帮助你的。
 
-- 可能需要学一点点linux基础知识，看：https://www.bilibili.com/video/av28813815/ 
-- 还需要一点点R语言基础知识，看：https://www.bilibili.com/video/av25643438/ 
+- 可能需要学一点点linux基础知识，看：<https://www.bilibili.com/video/av28813815/>
+- 还需要一点点R语言基础知识，看：<https://www.bilibili.com/video/av25643438/>
 - GEO数据库挖掘视频链接： <https://www.bilibili.com/video/av26731585/>
 
 既然代码免费放送给你了，但我还是希望你尊重我代码，不懂就不要瞎修改，而且如果真的对你有帮助，也欢迎打赏！！！
