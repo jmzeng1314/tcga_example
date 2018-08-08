@@ -37,33 +37,37 @@ rm(list=ls())
 library("XML")
 library("methods")
 dir='/Users/jmzeng/biosoft/gdc_client/miRNAseq/'
-all_fiels=list.files(path = dir ,pattern='*.xml$',recursive=T)
-cl = lapply(all_fiels
-            , function(x){
-              #x=all_fiels[1]
-              result <- xmlParse(file = file.path(dir,x)) 
-              rootnode <- xmlRoot(result)  
-              xmldataframe <- xmlToDataFrame( rootnode[2] ) 
-              return(t(xmldataframe))
-            })
-
-cl_df <- t(do.call(cbind,cl))
-save(cl_df,file = 'GDC_TCGA_LUAD_clinical_df.Rdata')
-
-dir='/home/jmzeng/project/tcga/miRNAseq/'
-
-mi = lapply(list.files(path = dir ,pattern='*.mirnas.quantification.txt$',recursive=T)
-            , function(x){
-              
-              result <- read.table(file = file.path(dir,x),sep = '\t',header = T)[,1:2]  
-              return( result )
-            })
-
-mi_df <- t(do.call(cbind,mi))
-dim(mi_df)
-mi_df[1:4,1:4]
-colnames(mi_df)=mi_df[1,]
-mi_df=mi_df[seq(2,nrow(mi_df),by=2),]
-mi_df[1:4,1:4]
-
-
+if(dir.exists(dir)){
+  
+  all_fiels=list.files(path = dir ,pattern='*.xml$',recursive=T)
+  all_fiels
+  cl = lapply(all_fiels
+              , function(x){
+                #x=all_fiels[1]
+                result <- xmlParse(file = file.path(dir,x)) 
+                rootnode <- xmlRoot(result)  
+                xmldataframe <- xmlToDataFrame( rootnode[2] ) 
+                return(t(xmldataframe))
+              })
+  
+  cl_df <- t(do.call(cbind,cl))
+  save(cl_df,file = 'GDC_TCGA_LUAD_clinical_df.Rdata')
+  
+  dir='/home/jmzeng/project/tcga/miRNAseq/'
+  
+  mi = lapply(list.files(path = dir ,pattern='*.mirnas.quantification.txt$',recursive=T)
+              , function(x){
+                
+                result <- read.table(file = file.path(dir,x),sep = '\t',header = T)[,1:2]  
+                return( result )
+              })
+  
+  mi_df <- t(do.call(cbind,mi))
+  dim(mi_df)
+  mi_df[1:4,1:4]
+  colnames(mi_df)=mi_df[1,]
+  mi_df=mi_df[seq(2,nrow(mi_df),by=2),]
+  mi_df[1:4,1:4]
+  
+  
+}

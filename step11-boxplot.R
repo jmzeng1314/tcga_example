@@ -26,15 +26,24 @@ dim(expr)
 expr[1:4,1:4]
 head(phe)
 head(mut)
-dat=data.frame(gene=log2(exprSet['hsa-mir-10b',]+1),stage=phe$stage)
-library(ggpubr)
-# google search : ggpubr boxplot add p-value
-# http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/
-p <- ggboxplot(dat, x = "stage", y = "gene",
-               color = "stage", palette = "jco",
-               add = "jitter")
-#  Add p-value
-p + stat_compare_means()
+dat=data.frame(gene=log2(exprSet['hsa-mir-10b',]+1),
+               stage=phe$stage)
+head(dat)
+if(require('ggpubr')){
+  library(ggpubr)
+  # google search : ggpubr boxplot add p-value
+  # http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/
+  p <- ggboxplot(dat, x = "stage", y = "gene",
+                 color = "stage", palette = "jco",
+                 add = "jitter")
+  #  Add p-value
+  p + stat_compare_means()
+}
+if(require('ggstatsplot')){
+  library(ggstatsplot)
+  ggbetweenstats(data = dat, x = stage,  y = gene)
+}
+
 # Change method
 # Compute the analysis of variance
 res.aov <- aov(gene ~ stage, data = dat)
@@ -54,16 +63,32 @@ library(dplyr)
   substr(1,12)
   
 
-dat=data.frame(gene=exprSet['hsa-mir-10b',],mut= substr(colnames(exprSet),1,12) %in% VHL_mut)
-library(ggpubr)
-# google search : ggpubr boxplot add p-value
-# http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/
-p <- ggboxplot(dat, x = "mut", y = "gene",
-               color = "mut", palette = "jco",
-               add = "jitter")
-#  Add p-value
-p + stat_compare_means(method = "t.test")
+dat=data.frame(gene=log2(exprSet['hsa-mir-10b',]),
+               mut= substr(colnames(exprSet),1,12) %in% VHL_mut)
+head(dat)
+if(require('ggpubr')){
+  library(ggpubr)
+  # google search : ggpubr boxplot add p-value
+  # http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/76-add-p-values-and-significance-levels-to-ggplots/
+  p <- ggboxplot(dat, x = "mut", y = "gene",
+                 color = "mut", palette = "jco",
+                 add = "jitter")
+  #  Add p-value
+  p + stat_compare_means(method = "t.test")
+}
 
+if(require('ggstatsplot')){
+  library(ggstatsplot)
+  ggbetweenstats(data = dat, x = mut,  y = gene)
+}
+
+
+if(require('ggplot2')){
+  library(ggplot2)
+  ggplot(dat,aes(x=mut,y=gene))+
+    geom_boxplot()+
+    theme_bw()
+}
 
 
 

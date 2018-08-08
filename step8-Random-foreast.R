@@ -14,6 +14,7 @@
 ### https://github.com/jmzeng1314/ML
 
 rm(list=ls())
+Sys.setenv(R_MAX_NUM_DLLS=999)
 library(survival)
 library(survminer)
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
@@ -37,7 +38,11 @@ num_classes = length(tmp)
 min_size = tmp[order(tmp,decreasing=FALSE)[1]]
 sampsizes = rep(min_size,num_classes)
 
-rf_output=randomForest(x=x, y=y,importance = TRUE, ntree = 10001, proximity=TRUE )
+if(!file.exists('TCGA_KIRC_miRNA_rf_output.Rdata')){
+  rf_output=randomForest(x=x, y=y,importance = TRUE, ntree = 10001, proximity=TRUE )
+  save(rf_output,file = 'TCGA_KIRC_miRNA_rf_output.Rdata')
+}
+load(file = 'TCGA_KIRC_miRNA_rf_output.Rdata')
 rf_output
 str(rf_output)
 

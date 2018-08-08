@@ -14,6 +14,7 @@
 ### https://github.com/jmzeng1314/ML
 
 rm(list=ls())
+Sys.setenv(R_MAX_NUM_DLLS=999)
 library(survival)
 library(survminer)
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
@@ -35,9 +36,16 @@ exprSet[1:4,1:4]
 # 如果金标准是生存分析资料（生存时间overall survival time与生存状态 status）
 # 需要通过R软件的survivalROC包来介绍生存资料的ROC分析，即时间依赖的ROC分析。
 
+library(lars) 
+library(glmnet) 
+x=t(log2(exprSet+1))
+y=phe$event 
+cv_fit <- cv.glmnet(x=x, y=y, alpha = 1, nlambda = 1000) 
+lasso.prob <- predict(cv_fit, newx=x , s=c(cv_fit$lambda.min,cv_fit$lambda.1se) )
 
+new_dat=phe
 library(timeROC)
-new_dat$fp=fp
+new_dat$fp=as.numeric(lasso.prob[,1])
 with(new_dat,
      ROC <<- timeROC(T=time,#结局时间 
                      delta=event,#生存结局 

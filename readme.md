@@ -1,4 +1,4 @@
-# 一个TCGA数据挖掘实例
+# 一堆TCGA数据挖掘实例
 
 ### 首先需要了解TCGA计划背景知识及数据下载方法汇总
 
@@ -12,7 +12,7 @@ TCGA的28篇教程往期目录如下：
 
 [ TCGA的28篇教程-  批量下载TCGA所有数据](http://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247486746&idx=1&sn=b7c5ad7eff8cffb3620756f5feaff587&chksm=9b484da1ac3fc4b741a6e3b59ba1bf668a11e21eb610f1a1d4582e33d429c67c14e6659c0771&scene=21#wechat_redirect) （ UCSC的 XENA）
 
-因为TCGA实在是一个跨时代的癌症研究项目，不能在下载这个基础环境耽误太多的功夫，下载渠道再多，也只需要一个好用的即可！
+因为TCGA实在是一个**跨时代的癌症研究项目**，不能在下载这个基础环境耽误太多的功夫，下载渠道再多，也只需要一个好用的即可！
 
 我以前在生信技能树论坛也写过 TCGA数据下载合集：
 
@@ -32,7 +32,7 @@ TCGA的28篇教程往期目录如下：
 
 #### GDC官方下载工具
 
-GDC给出了一系列的用户友好的选择框，你只需要根据条条框框来选择就可以下载到自己想要的数据，而不需要去几百个文件夹里面漫无目的的查找了。 <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>  根据自定义搜索过滤条件拿到了 mainfest 文件就可以啦。
+GDC给出了一系列的用户友好的选择框，你只需要根据条条框框来选择就可以下载到自己想要的数据，而不需要去几百个文件夹里面漫无目的的查找了。 <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>  根据自定义搜索过滤条件拿到了 mainfest 文件就可以啦。（可能需要一点点linux基础，或者看视频指导）
 
 GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data ... de/Getting_Started/](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/) 
 傻瓜式软件，非常简单！
@@ -41,7 +41,62 @@ GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data ... de/Getting_S
 
 ### 实例文章
 
+文章虽然发表在 [Oncotarget.](https://www.ncbi.nlm.nih.gov/pubmed/25826081#) 2015 Apr 30; 题目是：Integrated genomic analysis identifies subclasses and prognosis signatures of kidney cancer. 但是这个思路相关的几千篇文章都是差不多的，**务必打印出该文章**，通读全文。
 
+再比如下面的3个文章：
+
+ https://mp.weixin.qq.com/s/J-vaFq1Vv-zR1LC0Wop1zw
+ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5051943/figure/djw200-F2/
+ https://www.ncbi.nlm.nih.gov/pubmed/24893932
+
+- Sixteen of the 111 most significantly altered miRNAs were associated with OS across different clinical subclasses of the TCGA-derived LUAD cohort. 
+- A linear prognostic model of eight miRNAs (miR-31, miR-196b, miR-766, miR-519a-1, miR-375, miR-187, miR-331 and miR-101-1) was constructed and weighted by the importance scores from the supervised principal component method to divide patients into high- and low-risk groups. 
+- Patients assigned to the high-risk group exhibited poor OS compared with patients in the low-risk group (hazard ratio [HR]=1.99, P <0.001). 
+- The eight-miRNA signature is an independent prognostic marker of OS of LUAD patients and demonstrates good performance for predicting 5-year OS (Area Under the respective ROC Curves [AUC] = 0.626, P = 0.003), especially for non-smokers (AUC = 0.686, P = 0.023).
+
+### 癌症背景知识
+
+看TCGA计划可以发现ccRCC患者的VHL基因异常频率很高，如下所示：
+
+
+
+比如 2018年就终于研究出肾癌新的ZHX2是VHL靶点，这就是科学探索。
+
+透明细胞肾细胞癌（Clear cell renal cell carcinoma, ccRCC）是肾癌的一种亚型，它其中一个特征是约90％的ccRCC患者的von Hippel-Lindau（*VHL*）基因失活。VHL是E3泛素连接酶复合物（通过靶向脯氨酰-羟基化的蛋白质，来发挥蛋白酶体降解的作用）的底物识别亚基*。VHL*的典型靶标是缺氧诱导因子（hypoxia-inducible factor, HIF，一种在富氧条件下不稳定的转录因子）的α亚基。HIFα在ccRCC发育早期成为稳定因子，诱导促进血管生成和细胞内代谢重编程的转录活动的发生。寻找HIFα以外的、逃脱被降解命运，并促肿瘤发生的VHL底物是一种潜在的ccRCC新疗法。最近一期的《科学》（*Science*）杂志上，Zhang等人发现了一种新的VHL靶标ZHX2（zinc fingers and homeoboxes 2）。ZHX2通过调节核因子B（NF-KB）信号传导来促进ccRCC肿瘤发生，它可能是治疗ccRCC的新靶标。文章是：Danielle J. Sanchez. (2018) Transcriptional control of kidney cancer. *Science ,* 6399:226-227. 
+
+### 全代码流程：
+
+这些都是价值1000的代码，你看我我在生信技能树的推文就理解，为什么是这个定价了：https://mp.weixin.qq.com/s/hOgiWzvkWZLNKX1LDvrAaw  但是要想完全吃透我的代码，你肯定是需要有R语言知识的。我在B站的一系列免费R教学视频应该是可以帮助你的。
+
+- GEO数据库挖掘视频链接： <https://www.bilibili.com/video/av26731585/>
+
+既然代码免费放送给你了，但我还是希望你尊重我代码，不懂就不要瞎修改，而且如果真的对你有帮助，也欢迎打赏！！！
+
+超出100块钱的可以在微信打赏的同时留言你的邮箱地址，有神秘大礼赠送哦！！！
+
+![捐赠我](http://www.bio-info-trainee.com/wp-content/uploads/2016/09/jimmy-donate.jpg)
+
+- [step0-install-packages.R](step0-install-packages.R)
+- [step1-getData-from-GDC.R](step1-getData-from-GDC.R)
+- [step1-getData-from-RTCGA.R](step1-getData-from-RTCGA.R)
+- [step1-getData-from-Xena.R](step1-getData-from-Xena.R)
+- [step1-getData-from-firehose.R](step1-getData-from-firehose.R)
+- [step2-DEG-3-packages.R](step2-DEG-3-packages.R)
+- [step3-batch-logRank.R](step3-batch-logRank.R)
+- [step4-batch-coxp.R](step4-batch-coxp.R)
+- [step5-lasso.R](step5-lasso.R)
+- [step6-coxph-forest.R](step6-coxph-forest.R)
+- [step7-risk-score-distribution.R](step7-risk-score-distribution.R)
+- [step8-Random-foreast.R](step8-Random-foreast.R)
+- [step9-miRNA-downstream.R](step9-miRNA-downstream.R)
+- [step10-maftools.R](step10-maftools.R)
+- [step11-boxplot.R](step11-boxplot.R)
+- [step12-correlation.R](step12-correlation.R)
+- [step13-split-cohort.R](step13-split-cohort.R)
+- [step14-timeROC.R](step14-timeROC.R)
+- [step15-choose_lncRNA.R](step15-choose_lncRNA.R)
+- [step16-clinical-tables.R](step16-clinical-tables.R)
+- [step17-others.R](step17-others.R)
 
 ### 统计学背景
 
@@ -51,7 +106,7 @@ GDC客户端的说明书是：[https://docs.gdc.cancer.gov/Data ... de/Getting_S
 - LASSO回归
 - COXPH
 
-
+直接在生信技能树公众号搜索，都可以看到系列教程，不赘述。
 
 ### 机器学习(Machine Learning)
 
