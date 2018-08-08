@@ -16,7 +16,12 @@
 rm(list=ls())
 load(file = 'TCGA-KIRC-miRNA-example.Rdata')
 dim(expr)
-group_list=ifelse(substr(colnames(expr),14,15)=='01','tumor','normal')
+
+table(substr(colnames(expr),14,15))
+# code 05 is a tumor sample
+# ref: <https://www.jianshu.com/p/74c36463a97e>
+
+group_list=ifelse(substr(colnames(expr),14,15)%in%c('01','05'),'tumor','normal')
 table(group_list)
 exprSet=na.omit(expr)
 source('functions.R')
