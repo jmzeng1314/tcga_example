@@ -46,8 +46,7 @@ if(! require("timeROC")) install.packages("timeROC")
 if(! require("ggpubr")) install.packages("ggpubr")
 
 if(! require("randomForest")) install.packages("randomForest")
-if(! require("ROCR")) install.packages("ROCR")
-if(! require("genefilter")) install.packages("genefilter")
+if(! require("ROCR")) install.packages("ROCR") 
 if(! require("Hmisc")) install.packages("Hmisc")
  
 if(! require("caret")) install.packages("caret")
