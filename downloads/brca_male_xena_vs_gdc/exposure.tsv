@@ -1,0 +1,13 @@
+case_id	submitter_id	project_id	cigarettes_per_day	weight	alcohol_history	alcohol_intensity	bmi	years_smoked	height
+1026e0bf-5640-4fa5-b65f-4f11e8e76b18	TCGA-D8-A1XS	TCGA-BRCA	--	--	--	--	--	--	--
+c710f4ab-fbd9-42ed-95d4-4e6d51207f38	TCGA-BH-A0B4	TCGA-BRCA	--	--	--	--	--	--	--
+784de7ac-8424-42eb-83d4-a1bebaa42b97	TCGA-A1-A0SM	TCGA-BRCA	--	--	--	--	--	--	--
+35ca5e2a-861a-4dd2-a4ce-d294cf080da3	TCGA-AQ-A54O	TCGA-BRCA	--	--	--	--	--	--	--
+d5f2b85a-94a9-4168-bbe8-149ec71342b0	TCGA-AC-A62V	TCGA-BRCA	--	--	--	--	--	--	--
+dba9beec-5e51-48c0-9229-0ee286a02a1a	TCGA-BH-A0DD	TCGA-BRCA	--	--	--	--	--	--	--
+3c08aabd-d5b5-4bbe-857c-38a7527b2163	TCGA-A8-A085	TCGA-BRCA	--	--	--	--	--	--	--
+d2219a3f-4c55-4dee-9b08-c6f330dd1acf	TCGA-AO-A1KQ	TCGA-BRCA	--	--	--	--	--	--	--
+eadb0562-2165-4adb-ad58-018e73f82780	TCGA-E2-A14W	TCGA-BRCA	--	--	--	--	--	--	--
+aba5f46a-e67a-4cd2-9c52-c0686968ff04	TCGA-EW-A6SA	TCGA-BRCA	--	--	--	--	--	--	--
+4dfc233b-ed03-4825-8089-e04cdee99996	TCGA-EW-A1PD	TCGA-BRCA	--	--	--	--	--	--	--
+daf62b56-6dd2-4ab7-adaa-f296bb86a0a5	TCGA-AR-A1AV	TCGA-BRCA	--	--	--	--	--	--	--

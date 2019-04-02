@@ -1,0 +1,183 @@
+[{
+  "file_name": "06a8ba43-c1e0-4de1-9073-4b16c95245ca.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 248969, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "35ca5e2a-861a-4dd2-a4ce-d294cf080da3"
+    }
+  ]
+},{
+  "file_name": "1414d172-710a-4fb6-af82-f8b0c923b259.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 254043, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "784de7ac-8424-42eb-83d4-a1bebaa42b97"
+    }
+  ]
+},{
+  "file_name": "dfe06359-c16a-4959-bb04-298f18474a17.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 257412, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "3c08aabd-d5b5-4bbe-857c-38a7527b2163"
+    }
+  ]
+},{
+  "file_name": "e30e547e-eeff-4a1f-829b-b6ec9e79f02a.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 252723, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "d2219a3f-4c55-4dee-9b08-c6f330dd1acf"
+    }
+  ]
+},{
+  "file_name": "fcdaa827-e263-46e0-8a83-206fa5a009ba.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 249545, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "eadb0562-2165-4adb-ad58-018e73f82780"
+    }
+  ]
+},{
+  "file_name": "f5aa7410-7a2e-4267-ba3a-2a6a391f6b45.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 251808, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "dba9beec-5e51-48c0-9229-0ee286a02a1a"
+    }
+  ]
+},{
+  "file_name": "6068fbcf-7836-41f6-8cd2-4cffde58d00a.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 246080, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "c710f4ab-fbd9-42ed-95d4-4e6d51207f38"
+    }
+  ]
+},{
+  "file_name": "f6b9d070-6d11-40f3-9ca0-a20779091825.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 254304, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "aba5f46a-e67a-4cd2-9c52-c0686968ff04"
+    }
+  ]
+},{
+  "file_name": "b40a318f-fc61-49e5-ab41-c2e41510a12c.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 254413, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "dba9beec-5e51-48c0-9229-0ee286a02a1a"
+    }
+  ]
+},{
+  "file_name": "d998e259-4ea6-428d-8c47-4bc4656dbaa7.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 256942, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "1026e0bf-5640-4fa5-b65f-4f11e8e76b18"
+    }
+  ]
+},{
+  "file_name": "9838a921-f1fc-434a-abe3-d396e32c32b5.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 250245, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "d5f2b85a-94a9-4168-bbe8-149ec71342b0"
+    }
+  ]
+},{
+  "file_name": "1a33a98d-2df8-4c2d-8042-5d2add5ce54c.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 254903, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "4dfc233b-ed03-4825-8089-e04cdee99996"
+    }
+  ]
+},{
+  "file_name": "0cb461ea-1a40-4f29-97d8-9337a74bc6c7.htseq.counts.gz", 
+  "data_format": "TXT", 
+  "access": "open", 
+  "data_category": "Transcriptome Profiling", 
+  "file_size": 254882, 
+  "cases": [
+    {
+      "project": {
+        "project_id": "TCGA-BRCA"
+      }, 
+      "case_id": "daf62b56-6dd2-4ab7-adaa-f296bb86a0a5"
+    }
+  ]
+}]
